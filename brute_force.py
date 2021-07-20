@@ -32,23 +32,26 @@ input_list = [
     ["Action-20", 114, 18]
 ]
 
+print(len(input_list))
+
 test_list = list(input_list)
 
-def bruteforce(potential_lists, input_list, length=1):
+def bruteforce(potential_lists, working_list=input_list, length=1):
 
-    if length < len(input_list):
-        for value in input_list:
-            new_combination = [value]
+    if length <= len(working_list):
+        for index, element in enumerate(working_list):
+            new_combination = [element]
             potential_lists.append(new_combination)
-            bruteforce(potential_lists, input_list, length + 1)
-
-    return potential_lists
+            next_list = list(working_list)
+            del next_list[index]
+            bruteforce(potential_lists, length=length + 1, working_list=next_list)
 
 for value in input_list:
     value[2] = ((value[1] * value[2]) / 100)
 
-potential_lists = bruteforce(potential_lists, input_list)
-print(potential_lists)
+test = bruteforce(potential_lists, input_list)
+print(1)
+print(len(test))
 
 print(choice_list)
 print("somme investie: ", total_invest)
