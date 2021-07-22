@@ -8,8 +8,6 @@ choice_list = []
 total_invest = 0
 total_earn = 0
 
-#input_list = [["value1", 12, 15], ["value2", 4, 9], ["value3", 15, 20], ["value4", 8, 10]]
-
 input_list = [
     ["Action-1", 20, 5],
     ["Action-2", 30, 10],
@@ -33,10 +31,7 @@ input_list = [
     ["Action-20", 114, 18]
 ]
 
-for value in input_list:
-    value[2] = ((value[1] * value[2]) / 100)
-
-input_list = sorted(input_list, key=lambda columns: columns[2], reverse=True)
+working_list = sorted(working_list, key=lambda action: action.benefit, reverse=True)
 
 for value in input_list:
     new_invest_value = invest + value[1]
