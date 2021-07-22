@@ -74,7 +74,7 @@ print(test)
 #print("pourcentage gain: ", ((100 * total_earn) / total_invest))
 
 
-from typing import List
+
 
 MAX_INVEST = 500
 input_list = [
@@ -82,21 +82,6 @@ input_list = [
     ["Action-2", 30, 10],
     ["Action-3", 50, 15],
 ]
-
-
-class Action:
-    def __init__(self, name: str, cost: float, percentage: float):
-        self.name = name
-        self.cost = cost
-        self.percentage = percentage
-        self.benefit = self.cost * self.percent / 100
-
-
-class Combinaison:
-    def __init__(self, actions: List[Actions]):
-        self.actions = actions
-        self.benefit = sum([action.benefit for action in list_actions])
-        self.cost = sum([action.cost for action in actions])
 
 
 def make_combinaisons(number: int, actions: List[Action]) -> List[Combinaison]:
