@@ -5,6 +5,8 @@ import argparse
 from algo.optimized import optimized_algo
 # from algo.brute_force import bruteforce
 
+DEFAULT_MAX_INVEST = 500
+
 
 def parse_argument():
     parser = argparse.ArgumentParser()
@@ -21,9 +23,14 @@ def main():
     args = parse_argument()
     print(args)
     if args.bruteforce:
-       print("bruteforce gogogo")
+        print("bruteforce gogogo")
     else:
-        optimized_algo(args.file, verbose=args.verbose, max_invest=args.max_invest)
+        if not args.max_invest:
+            max_invest = DEFAULT_MAX_INVEST
+        else:
+            max_invest = args.max_invest
+
+        optimized_algo(args.file, verbose=args.verbose, max_invest=max_invest)
 
 
 if __name__ == "__main__":

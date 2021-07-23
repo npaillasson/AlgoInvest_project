@@ -17,7 +17,3 @@ class Share:
                 return False
         else:
             return False
-
-
-
-
