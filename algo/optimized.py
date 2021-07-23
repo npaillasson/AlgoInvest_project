@@ -46,4 +46,4 @@ def optimized_algo(path, max_invest=500):
     print("somme gagnée: ", total_earn)
     print("pourcentage gain: ", ((100 * total_earn) / total_invest))
 
-optimized_algo("test/test_value.csv")
+optimized_algo("test/dataset_2.csv")
