@@ -32,7 +32,7 @@ def optimized_algo(path, max_invest=500):
     total_earn = 0
     choice_list = []
     working_list = data_cleaner(path)
-    working_list = sorted(working_list, key=lambda action: action.benefit, reverse=True)
+    working_list = sorted(working_list, key=lambda action: action.ratio, reverse=True)
 
     for action in working_list:
         new_invest_value = total_invest + action.cost
@@ -46,4 +46,4 @@ def optimized_algo(path, max_invest=500):
     print("somme gagnée: ", total_earn)
     print("pourcentage gain: ", ((100 * total_earn) / total_invest))
 
-optimized_algo("test/dataset_2.csv")
+optimized_algo("test/test_value.csv")

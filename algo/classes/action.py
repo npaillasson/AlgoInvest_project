@@ -7,6 +7,7 @@ class Action:
         self.cost = cost
         self.percent = percent
         self.benefit = self.cost * self.percent / 100
+        self.ratio = self.benefit / self.cost
 
     def __eq__(self, other_action):
         if isinstance(other_action, Action):
