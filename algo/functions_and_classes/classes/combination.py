@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from typing import List
-from action import Share
+from share import Share
 
 class Combinaison:
     def __init__(self, shares: List[Share]):

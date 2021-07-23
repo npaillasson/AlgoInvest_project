@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from operator import attrgetter
-from algo.functions_and_classes.classes.action import Share
+from algo.functions_and_classes.classes.share import Share
 from algo.functions_and_classes.view import display_results
 from algo.functions_and_classes.dataset_cleaner import data_cleaner
 
