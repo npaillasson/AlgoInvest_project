@@ -23,6 +23,8 @@ def main():
     if args.bruteforce:
        print("bruteforce gogogo")
     else:
-        print("non je reflechie un peu avant de foncer dans le tas")
+        optimized_algo(args.file, verbose=args.verbose, max_invest=args.max_invest)
 
-main()
+
+if __name__ == "__main__":
+    main()

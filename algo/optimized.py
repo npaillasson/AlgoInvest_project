@@ -1,8 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from algo.functions_and_classes.dataset_cleaner import data_cleaner
 from algo.functions_and_classes.classes.action import Action
+from algo.functions_and_classes.view import display_results
+from algo.functions_and_classes.dataset_cleaner import data_cleaner
 
 input_list = [
     ["Action-1", 20, 5],
@@ -27,11 +28,15 @@ input_list = [
     ["Action-20", 114, 18]
 ]
 
-def optimized_algo(path, max_invest=500):
+def optimized_algo(path, max_invest=500, verbose=False):
+
+    if not max_invest:
+        max_invest = 500
+
     total_invest = 0
     total_earn = 0
     choice_list = []
-    working_list = data_cleaner(path)
+    working_list = data_cleaner(path, verbose=verbose)
     working_list = sorted(working_list, key=lambda action: action.ratio, reverse=True)
 
     for action in working_list:
@@ -40,10 +45,8 @@ def optimized_algo(path, max_invest=500):
             total_invest = new_invest_value
             choice_list.append(action.name)
             total_earn += action.benefit
+            gain_rate = ((100 * total_earn) / total_invest)
 
-    print(choice_list)
-    print("somme investie: ", total_invest)
-    print("somme gagnée: ", total_earn)
-    print("pourcentage gain: ", ((100 * total_earn) / total_invest))
+    display_results(choice_list, total_invest, total_earn, gain_rate)
 
-#optimized_algo("test/test_value.csv")
+
