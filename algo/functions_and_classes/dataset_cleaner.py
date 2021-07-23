@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import csv
-from classes.action import Action
+from algo.functions_and_classes.classes.action import Action
 
 
 def data_cleaner(file_path):

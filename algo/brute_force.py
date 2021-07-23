@@ -102,5 +102,3 @@ def main():
             if current_best_combinaison and current_best_combinaison.benefit < combinaison.benefit:
                 current_best_combinaison = combinaison
 
-
-main()
