@@ -9,10 +9,12 @@ def data_cleaner(file_path, verbose=False):
 
     with open(file_path, "r") as file:
         data_list = csv.reader(file)
+        next(data_list)
         working_list = []
         for index, line in enumerate(data_list):
             try:
                 line[1], line[2] = float(line[1]), float(line[2])
+                index += 2
             except ValueError:
                 if verbose:
                     print("Error: (line {} action {}) the price of an action and the profit can only contain"
