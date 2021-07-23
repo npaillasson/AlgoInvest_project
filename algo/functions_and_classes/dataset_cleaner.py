@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import csv
-from algo.functions_and_classes.classes.action import Action
+from algo.functions_and_classes.classes.action import Share
 
 
 def data_cleaner(file_path, verbose=False):
@@ -29,12 +29,12 @@ def data_cleaner(file_path, verbose=False):
                     print("Warning: (line {}) The action '{}' will not be taken"
                           " into account because its return on invest is less than 0. ".format(index, line[0]))
             else:
-                new_action = Action(line[0], line[1], line[2])
-                if new_action in working_list:
+                new_share = Share(line[0], line[1], line[2])
+                if new_share in working_list:
                     if verbose:
                         print("Error: (line {}) The action '{}' exists at least twice."
                               " Only the first occurrence will be taken into account ! ".format(index, line[0]))
                 else:
-                    working_list.append(new_action)
+                    working_list.append(new_share)
 
         return working_list
