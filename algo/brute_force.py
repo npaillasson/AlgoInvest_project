@@ -18,10 +18,12 @@ input_list = [
 ]
 
 
-def make_combinations(number: int, max_invest, share: List[Share]) -> List[Combination]:
-    combinations = []
+#def make_combinations(number: int, max_invest, working_list: List[Share]) -> List[Combination]:
+#    combinations = []
+#    if number <= len(working_list):
+#        for share in working_list:
 
-    return [comb for comb in combinations if comb.cost <= max_invest]
+#    return [comb for comb in combinations if comb.cost <= max_invest]
 
 
 def main(path, max_invest, verbose=False):
@@ -30,16 +32,22 @@ def main(path, max_invest, verbose=False):
     total_invest = 0
     total_earn = 0
     choice_list = []
+    length = 0
+    last_combination = Combination([])
     working_list = data_cleaner(path, verbose=verbose)
+    current_combination = Combination([])
 
-    shares = [Share(share[0], share[1], share[2]) for share in working_list]
+    bruteforce(length, working_list, current_combination, last_combination, max_invest)
 
-    current_best_combination = None
 
-    for number in range(len(shares)):
-        number = number + 1
-        combinations = make_combinations(number, max_invest, shares)
-        for combination in combinations:
-            if current_best_combination and current_best_combination.benefit < combination.benefit:
-                current_best_combination = combination
+def bruteforce(length, working_list, last_combination, current_combination, max_invest):
+    if length <= len(working_list):
+
+        for share in working_list:
+            length = length + 1
+            current_combination += share
+            if current_combination.cost <= max_invest:
+                if current_combination.benefit > last_combination.benefit:
+                    last_combination = current_combination
+            bruteforce(length)
 

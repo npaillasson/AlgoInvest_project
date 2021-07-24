@@ -32,7 +32,7 @@ def data_cleaner(file_path, verbose=False):
                 new_share = Share(line[0], line[1], line[2])
                 if new_share in working_list:
                     if verbose:
-                        print("Error: (line {}) The action '{}' exists at least twice."
+                        print("Error: (line {}) The action '{}' exists at least twice in the csv file."
                               " Only the first occurrence will be taken into account ! ".format(index, line[0]))
                 else:
                     working_list.append(new_share)
