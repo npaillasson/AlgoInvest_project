@@ -6,7 +6,7 @@ from algo.functions_and_classes.view import display_results
 from algo.functions_and_classes.dataset_cleaner import data_cleaner
 
 
-def optimized_algo(path, max_invest, verbose=False):
+def main_optimized_algo(path, max_invest, verbose=False):
 
     gain_rate = 0
     total_invest = 0

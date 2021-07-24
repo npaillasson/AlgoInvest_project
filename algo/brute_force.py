@@ -26,7 +26,7 @@ input_list = [
 #    return [comb for comb in combinations if comb.cost <= max_invest]
 
 
-def main(path, max_invest, verbose=False):
+def main_bruteforce(path, max_invest, verbose=False):
 
     gain_rate = 0
     total_invest = 0
@@ -34,20 +34,24 @@ def main(path, max_invest, verbose=False):
     choice_list = []
     length = 0
     last_combination = Combination([])
+    best_combination = Combination([])
     working_list = data_cleaner(path, verbose=verbose)
-    current_combination = Combination([])
 
-    bruteforce(length, working_list, current_combination, last_combination, max_invest)
+    bruteforce(length, working_list, last_combination, max_invest, best_combination)
 
 
-def bruteforce(length, working_list, last_combination, current_combination, max_invest):
+def bruteforce(length, working_list, last_combination, max_invest, best_combination):
     if length <= len(working_list):
 
         for share in working_list:
-            length = length + 1
-            current_combination += share
+            print(length)
+            print("laster", last_combination)
+            current_combination = last_combination + share
+            print(current_combination.cost <= max_invest)
             if current_combination.cost <= max_invest:
-                if current_combination.benefit > last_combination.benefit:
-                    last_combination = current_combination
-            bruteforce(length)
+                last_combination = current_combination
+                if last_combination.benefit > best_combination.benefit:
+                    best_combination = last_combination
+
+            bruteforce(length + 1, working_list, last_combination, max_invest, best_combination)
 

@@ -17,3 +17,6 @@ class Share:
                 return False
         else:
             return False
+
+    def __repr__(self):
+        return "name {}, cost {}".format(self.name, self.cost)
