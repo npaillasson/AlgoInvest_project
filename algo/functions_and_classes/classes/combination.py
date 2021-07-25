@@ -6,11 +6,10 @@ from algo.functions_and_classes.classes.share import Share
 
 
 class Combination:
-    def __init__(self, max_invest, shares: List[Share]):
+    def __init__(self, shares: List[Share]):
         self.shares = shares
         self.benefit = self.benefit_calc()
         self.cost = self.cost_calc()
-        self.max_invest = max_invest
 
     def benefit_calc(self):
         self.benefit = sum([share.benefit for share in self.shares])
@@ -25,13 +24,15 @@ class Combination:
             self.shares.extend(object_to_add.shares)
             return self
         elif isinstance(object_to_add, Share):
+            new_combination = Combination([],)
             if object_to_add in self.shares:
                 return self
             else:
-                self.shares.append(object_to_add)
-                self.benefit_calc()
-                self.cost_calc()
-                return self
+                new_combination.shares = list(self.shares)
+                new_combination.shares.append(object_to_add)
+                new_combination.benefit_calc()
+                new_combination.cost_calc()
+                return new_combination
 
     def __repr__(self):
         return "shares {}\ncost {}\nbenefit {}".format(self.shares, self.cost, self.benefit)

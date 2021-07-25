@@ -29,8 +29,8 @@ input_list = [
 def main_bruteforce(path, max_invest, verbose=False):
 
     length = 0
-    last_combination = Combination(max_invest, [])
-    best_combination = Combination(max_invest, [])
+    last_combination = Combination([])
+    best_combination = Combination([])
     working_list = data_cleaner(path, verbose=verbose)
     max_length = len(working_list)
 
@@ -40,10 +40,8 @@ def main_bruteforce(path, max_invest, verbose=False):
 
 def bruteforce(length, working_list, last_combination, max_invest, best_combination, max_length):
     if length <= max_length:
-        print(length)
 
         for share in working_list:
-            print(last_combination)
             next_working_list = list(working_list)
             next_working_list.remove(share)
             current_combination = last_combination + share
