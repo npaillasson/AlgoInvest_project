@@ -42,26 +42,27 @@ def bruteforce(length, working_list, last_combination, max_invest, best_combinat
     if length <= max_length:
 
         for share in working_list:
-            print("LEVEL", length)
-            print("BEFOR", best_combination)
-            print("SHARE", share)
+            #print("LEVEL", length)
+            #print("BEFOR", best_combination)
+            #print("SHARE", share)
             next_working_list = list(working_list)
             next_working_list.remove(share)
-            print("NEXT", next_working_list)
+            #print("NEXT", next_working_list)
             current_combination = last_combination + share
-            print("CURRENT", current_combination)
+            #print("CURRENT", current_combination)
             if current_combination.cost > max_invest:
-                print("max")
+                #print("max")
                 bruteforce(length + 1, next_working_list, last_combination, max_invest,
                            best_combination, max_length)
             else:
-                print("notmax")
+                #print("notmax")
                 if current_combination.benefit > best_combination.benefit:
                     best_combination = current_combination
-                    print("BEST", best_combination)
+                    #print("BEST", best_combination)
                 best_combination = bruteforce(length + 1, next_working_list, last_combination + share,
                                               max_invest, best_combination, max_length)
+            working_list.remove(share)
 
-        print("BEST (return)", best_combination)
+        #print("BEST (return)", best_combination)
         return best_combination
 
