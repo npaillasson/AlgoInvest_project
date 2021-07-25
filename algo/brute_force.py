@@ -40,16 +40,21 @@ def main_bruteforce(path, max_invest, verbose=False):
 
 def bruteforce(length, working_list, last_combination, max_invest, best_combination, max_length):
     if length <= max_length:
+        print(length)
 
         for share in working_list:
+            print(last_combination)
             next_working_list = list(working_list)
             next_working_list.remove(share)
             current_combination = last_combination + share
-            if current_combination.benefit > best_combination.benefit:
-                best_combination = current_combination
-
-            bruteforce(length + 1, next_working_list, last_combination + share, max_invest,
-                       best_combination, max_length)
+            if current_combination.cost > max_invest:
+                bruteforce(length + 1, next_working_list, last_combination, max_invest,
+                           best_combination, max_length)
+            else:
+                if current_combination.benefit > best_combination.benefit:
+                    best_combination = current_combination
+                bruteforce(length + 1, next_working_list, last_combination + share,
+                           max_invest, best_combination, max_length)
 
         return best_combination
 

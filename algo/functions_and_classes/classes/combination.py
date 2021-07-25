@@ -28,10 +28,9 @@ class Combination:
             if object_to_add in self.shares:
                 return self
             else:
-                if self.cost + object_to_add.cost <= self.max_invest:
-                    self.shares.append(object_to_add)
-                    self.benefit_calc()
-                    self.cost_calc()
+                self.shares.append(object_to_add)
+                self.benefit_calc()
+                self.cost_calc()
                 return self
 
     def __repr__(self):
