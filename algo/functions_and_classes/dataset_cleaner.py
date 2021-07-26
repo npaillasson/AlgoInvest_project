@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import csv
+import sys
 from algo.functions_and_classes.classes.share import Share
 
 
@@ -20,6 +21,9 @@ def data_cleaner(file_path, verbose=False):
                     print("Error: (line {} action {}) the price of an action and the profit can only contain"
                           " numbers ! The action will not be taken into account".format(index, line[0]))
                 continue
+            except IndexError:
+                print("The CSV file seems incorrect... for more information, please refer to the README.md file.")
+                exit()
             if line[1] <= 0:
                 if verbose:
                     print("Error: (line {}) The action '{}' will not"
