@@ -8,6 +8,7 @@ from algo.functions_and_classes.dataset_cleaner import data_cleaner
 
 DEFAULT_MAX_INVEST = 500
 
+
 def max_invest_amount(args):
     if not args.max_invest:
         max_invest = DEFAULT_MAX_INVEST
@@ -15,6 +16,7 @@ def max_invest_amount(args):
         max_invest = args.max_invest
 
     return max_invest
+
 
 def parse_argument():
     parser = argparse.ArgumentParser()

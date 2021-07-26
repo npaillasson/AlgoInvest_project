@@ -2,7 +2,6 @@
 # coding: utf-8
 
 import csv
-import sys
 from algo.functions_and_classes.classes.share import Share
 
 

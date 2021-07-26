@@ -3,10 +3,9 @@
 
 from operator import attrgetter
 from algo.functions_and_classes.view import display_results
-from algo.functions_and_classes.dataset_cleaner import data_cleaner
 
 
-def main_optimized_algo(working_list, max_invest, verbose=False):
+def main_optimized_algo(working_list, max_invest):
 
     gain_rate = 0
     total_invest = 0
