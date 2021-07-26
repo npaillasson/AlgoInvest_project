@@ -19,4 +19,4 @@ class Share:
             return False
 
     def __repr__(self):
-        return "name {}, cost {}€, earn {}€".format(self.name, self.cost, self.benefit)
+        return "name {}, cost {}€, earn {}€".format(self.name, round(self.cost, 2), round(self.benefit, 3))
