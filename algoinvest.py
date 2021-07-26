@@ -31,10 +31,11 @@ def parse_argument():
 
 def main():
     args = parse_argument()
-    print(args)
     working_list = data_cleaner(args.file, verbose=args.verbose)
     if args.bruteforce:
-        print("Warning")
+        print("\nWarning: the 'bruteforce' method is not recommended as it can be very time "
+              "consuming and resource intensive. (the execution time increases exponentially"
+              " with the size of your CSV file) to cancel used 'CTRL^C'\n")
         main_bruteforce(working_list, max_invest=max_invest_amount(args))
     else:
         main_optimized_algo(working_list, max_invest=max_invest_amount(args))
