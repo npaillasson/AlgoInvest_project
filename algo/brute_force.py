@@ -26,12 +26,11 @@ input_list = [
 #    return [comb for comb in combinations if comb.cost <= max_invest]
 
 
-def main_bruteforce(path, max_invest, verbose=False):
+def main_bruteforce(working_list, max_invest):
 
     length = 0
     last_combination = Combination([])
     best_combination = Combination([])
-    working_list = data_cleaner(path, verbose=verbose)
     max_length = len(working_list) + 1
 
     a = bruteforce(length, working_list, last_combination, max_invest, best_combination, max_length)

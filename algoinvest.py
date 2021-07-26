@@ -4,6 +4,7 @@
 import argparse
 from algo.optimized import main_optimized_algo
 from algo.brute_force import main_bruteforce
+from algo.functions_and_classes.dataset_cleaner import data_cleaner
 
 DEFAULT_MAX_INVEST = 500
 
@@ -29,10 +30,12 @@ def parse_argument():
 def main():
     args = parse_argument()
     print(args)
+    working_list = data_cleaner(args.file, verbose=args.verbose)
     if args.bruteforce:
-        main_bruteforce(args.file, verbose=args.verbose, max_invest=max_invest_amount(args))
+        print("Warning")
+        main_bruteforce(working_list, max_invest=max_invest_amount(args))
     else:
-        main_optimized_algo(args.file, verbose=args.verbose, max_invest=max_invest_amount(args))
+        main_optimized_algo(working_list, max_invest=max_invest_amount(args))
 
 
 if __name__ == "__main__":
