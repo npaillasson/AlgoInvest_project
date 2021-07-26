@@ -5,6 +5,7 @@ from typing import List
 from algo.functions_and_classes.dataset_cleaner import data_cleaner
 from algo.functions_and_classes.classes.share import Share
 from algo.functions_and_classes.classes.combination import Combination
+from algo.functions_and_classes.view import display_results
 
 potential_lists = []
 record_list = []
@@ -33,8 +34,10 @@ def main_bruteforce(working_list, max_invest):
     best_combination = Combination([])
     max_length = len(working_list) + 1
 
-    a = bruteforce(length, working_list, last_combination, max_invest, best_combination, max_length)
-    print(a)
+    best_combination = bruteforce(length, working_list, last_combination, max_invest, best_combination, max_length)
+    best_combination.gain_rate_calc()
+    display_results(best_combination.shares, best_combination.cost, best_combination.benefit,
+                    best_combination.gain_rate)
 
 
 def bruteforce(length, working_list, last_combination, max_invest, best_combination, max_length):
