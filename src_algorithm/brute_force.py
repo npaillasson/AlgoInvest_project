@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from algo.functions_and_classes.classes.combination import Combination
-from algo.functions_and_classes.view import display_results
+from .functions_and_classes.classes.combination import Combination
+from .functions_and_classes.view import display_results
 
 
 def main_bruteforce(working_list, max_invest):

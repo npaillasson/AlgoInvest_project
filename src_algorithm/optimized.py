@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from operator import attrgetter
-from algo.functions_and_classes.view import display_results
+from .functions_and_classes.view import display_results
 
 
 def main_optimized_algo(working_list, max_invest):

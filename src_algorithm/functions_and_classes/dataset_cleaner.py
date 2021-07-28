@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import csv
-from algo.functions_and_classes.classes.share import Share
+from .classes.share import Share
 
 
 def data_cleaner(file_path, verbose=False):

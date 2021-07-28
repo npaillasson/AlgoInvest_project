@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from typing import List
-from algo.functions_and_classes.classes.share import Share
+from .share import Share
 
 
 class Combination:
