@@ -11,7 +11,7 @@ def main_optimized_algo(working_list, max_invest):
     total_invest = 0
     total_earn = 0
     choice_list = []
-    working_list = sorted(working_list, key=attrgetter("ratio"), reverse=True)
+    working_list = sorted(working_list, key=attrgetter("percent"), reverse=True)
 
     for share in working_list:
         new_invest_value = total_invest + share.cost

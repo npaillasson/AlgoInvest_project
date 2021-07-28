@@ -7,14 +7,10 @@ class Share:
         self.cost = cost
         self.percent = percent
         self.benefit = self.cost * self.percent / 100
-        self.ratio = self.benefit / self.cost
 
     def __eq__(self, other_share):
-        if isinstance(other_share, Share):
-            if self.name == other_share.name:
-                return True
-            else:
-                return False
+        if isinstance(other_share, Share) and self.name == other_share.name:
+            return True
         else:
             return False
 
