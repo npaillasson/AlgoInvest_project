@@ -26,8 +26,8 @@ def bruteforce(length, working_list, last_combination, max_invest, best_combinat
             next_working_list.remove(share)
             current_combination = last_combination + share
             if current_combination.cost > max_invest:
-                bruteforce(length + 1, next_working_list, last_combination, max_invest,
-                           best_combination, max_length)
+                best_combination = bruteforce(length + 1, next_working_list, last_combination, max_invest,
+                                              best_combination, max_length)
             else:
                 if current_combination.benefit > best_combination.benefit:
                     best_combination = current_combination
