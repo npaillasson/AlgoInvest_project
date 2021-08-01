@@ -3,7 +3,7 @@
 
 import argparse
 from src_algorithm.optimized import main_optimized_algo
-from src_algorithm.brute_force import main_bruteforce
+from src_algorithm.bruteforce import main_bruteforce
 from src_algorithm.functions_and_classes.dataset_cleaner import data_cleaner
 
 DEFAULT_MAX_INVEST = 500
